@@ -16,7 +16,11 @@ jobs:
     #if: github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true
     steps:
     - name: debug
-      run: echo ${{github.event}}
+      run: |
+        echo ${{github.event.action}}
+        echo ${{github.event_name}}
+        echo ${{github.event.pull_request}}
+        echo ${{github.event.pull_request.merged}}
     
     - name: checkout repository
       uses: actions/checkout@v2
@@ -36,3 +40,4 @@ jobs:
       uses: ad-m/github-push-action@v0.5.0
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: main
