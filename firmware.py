@@ -1,9 +1,10 @@
-from Crypto.Cipher import AES
-from bs4 import BeautifulSoup
 import binascii
-import re
 import json
 import os
+import re
+
+from bs4 import BeautifulSoup
+from Crypto.Cipher import AES
 from requests.sessions import Session
 
 
